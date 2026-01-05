@@ -88,7 +88,7 @@ export default function AddExpense() {
 
         <button
           type="submit"
-          className="w-full rounded bg-black text-white py-2"
+          className="w-full rounded border bg-black text-white py-2"
         >
           Salvar gasto
         </button>
