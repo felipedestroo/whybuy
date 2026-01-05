@@ -1,24 +1,29 @@
 'use client'
 
 import { useState } from 'react'
+import { saveExpense } from '@/services/expenseService'
+import { v4 as uuid } from 'uuid'
+import { Emotion } from '@/types/expense'
 
 export default function AddExpense() {
   const [value, setValue] = useState('')
   const [category, setCategory] = useState('')
-  const [emotion, setEmotion] = useState('neutro')
+  const [emotion, setEmotion] = useState<Emotion>('neutro')
   const [note, setNote] = useState('')
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault()
 
-    const expense = {
-      value,
+    saveExpense({
+      id: uuid(),
+      value: Number(value),
       category,
       emotion,
       note,
-    }
+      date: new Date().toISOString(),
+    })
 
-    console.log('Novo gasto:', expense)
+    window.location.href = '/'
   }
 
   return (
@@ -63,7 +68,7 @@ export default function AddExpense() {
           </label>
           <select
             value={emotion}
-            onChange={(e) => setEmotion(e.target.value)}
+            onChange={(e) => setEmotion(e.target.value as Emotion)}
             className="mt-1 w-full rounded border p-2"
           >
             <option value="feliz">😄 Feliz</option>
