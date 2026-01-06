@@ -1,10 +1,8 @@
-import { Expense } from "@/types/expense";
+import { Expense } from '@/types/expense'
 
 const STORAGE_KEY = 'expenses'
 
 export function getExpenses(): Expense[] {
-  if (typeof window === 'undefined') return []
-
   const data = localStorage.getItem(STORAGE_KEY)
   return data ? JSON.parse(data) : []
 }
