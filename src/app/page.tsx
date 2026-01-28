@@ -39,7 +39,7 @@ export default function Home() {
     <main className="p-6 max-w-2xl mx-auto">
       <h1 className="text-2xl font-bold">WhyBuy?</h1>
 
-      <p className="mt-2 text-gray-600 dark:text-red-500">
+      <p className="mt-2 text-gray-600 dark:text-white">
         Entenda como suas emoções influenciam seus gastos.
       </p>
 
